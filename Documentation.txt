@@ -2,4 +2,84 @@ FinTrack Documentation:
 Date: 28 September, 2024
 
 User Table:
-	-> UID: 
+	-> uid: UUID PRIMARY Key
+	-> name: VARCHAR(50)
+	-> password: VARCHAR(256)
+	-> age: INT
+	-> gender: CHAR(1) ENUM('M', 'F')
+	-> wallet: DOUBLE
+	-> email: VARCHAR(30)
+	-> mob: VARCHAR(14)
+	-> cur: VARCHAR(10) Default('INR')
+	
+	
+Budget Allocation:
+	-> uid: UUID
+	-> year: INT(4)
+	-> month: CHAR(3) ENUM('Jan','Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
+	-> rent: DOUBLE
+	-> water: DOUBLE
+	-> electricity: DOUBLE
+	-> travel: DOUBLE
+	-> entertainment: DOUBLE
+	-> medical: DOUBLE
+	-> debt: DOUBLE
+	-> food: DOUBLE
+	-> savings: DOUBLE
+	-> investment: DOUBLE
+	-> mob_internet: DOUBLE
+	-> shopping: DOUBLE
+	-> income: DOUBLE
+	
+Expenses:
+	-> uuid: UUID
+	-> date: DATE
+	-> dineout: DOUBLE
+	-> vegetable: DOUBLE
+	-> dairy: DOUBLE
+	-> fruits: DOUBLE
+	-> meat: DOUBLE
+	-> travel: DOUBLE
+	-> personal: DOUBLE
+	-> entertainment: DOUBLE
+	-> cloths: DOUBLE
+	-> furniture: DOUBLE
+	-> electronics: DOUBLE
+	-> grooming: DOUBLE
+	-> other: DOUBLE
+	
+Expenses_desc:
+	-> uuid: UUID
+	-> date: DATE
+	-> dineout_desc: VARCHAR(500)
+	-> vegetable_desc: VARCHAR(500)
+	-> dairy_desc: VARCHAR(500)
+	-> fruits_desc: VARCHAR(500)
+	-> meat_desc: VARCHAR(500)
+	-> travel_desc: VARCHAR(500)
+	-> personal_desc: VARCHAR(500)
+	-> entertainment_desc: VARCHAR(500)
+	-> cloths_desc: VARCHAR(500)
+	-> furniture_desc: VARCHAR(500)
+	-> electronics_desc: VARCHAR(500)
+	-> grooming_desc: VARCHAR(500)
+	-> other_desc: VARCHAR(500)
+	
+Fixed_Charges:
+	-> uuid: UUID
+	-> date: DATE
+	-> rent: DOUBLE
+	-> water: DOUBLE
+	-> electricity: DOUBLE
+	-> internet: DOUBLE
+	-> investment: DOUBLE
+	-> savings: DOUBLE
+	-> debt: DOUBLE 
+	-> gas: DOUBLE
+
+Investment:
+	-> uuid: UUID
+	-> date: DATE
+	-> name: VARCHAR(250)
+	-> category: ENUM('Real Estate', 'Gold', 'Digital Gold', 'Cryptocurrency', 'Bonds', 'Stocks', 'Funds')
+	-> description: VARCHAR(500)
