@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fintrack.FinTrack.entity.User;
+import com.fintrack.FinTrack.entity.Users;
 
 import com.fintrack.FinTrack.service.UserService;
 
@@ -20,8 +20,8 @@ public class UserControllerImpl implements UserController {
 	UserService userService;
 	
 	@GetMapping
-	public ResponseEntity<List<User>> getAll(){
-		List<User> allUsers = userService.findAllUsers();
+	public ResponseEntity<List<Users>> getAll(){
+		List<Users> allUsers = userService.findAllUsers();
 		return new ResponseEntity<>(allUsers,HttpStatus.OK);
 	}
 }

@@ -4,21 +4,23 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.fintrack.FinTrack.entity.User;
+import com.fintrack.FinTrack.entity.Users;
 import com.fintrack.FinTrack.repository.UserRepository;
 
+@Service
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	UserRepository userRepository;
 
 	@Override
-	public List<User> findAllUsers() {
+	public List<Users> findAllUsers() {
 
-		Iterable<User> allUsers = userRepository.findAll();
+		Iterable<Users> allUsers = userRepository.findAll();
 		if(allUsers != null)
-			return (List<User>) allUsers;
+			return (List<Users>) allUsers;
 		else
 			throw new RuntimeException("Users not found.");
 	}
