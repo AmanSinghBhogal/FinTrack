@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 
 @Component
 @Entity
-public class User {
+public class Users {
 	@Id
 	private String uid;
 	private String name;

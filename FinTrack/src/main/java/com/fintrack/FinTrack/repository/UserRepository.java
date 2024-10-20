@@ -2,10 +2,10 @@
 package com.fintrack.FinTrack.repository;
 
 import org.springframework.stereotype.Repository;
-import com.fintrack.FinTrack.entity.User;
+import com.fintrack.FinTrack.entity.Users;
 import org.springframework.data.repository.CrudRepository;
 
 @Repository
-public interface UserRepository extends CrudRepository<User, Integer> {
+public interface UserRepository extends CrudRepository<Users, String> {
 
 }

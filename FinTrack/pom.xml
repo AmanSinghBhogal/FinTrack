@@ -12,7 +12,7 @@
 	<artifactId>FinTrack</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>FinTrack</name>
-	<description>Demo project for Spring Boot</description>
+	<description>This is the backend for our budget tracking application.</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -40,8 +40,8 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
 
 		<dependency>
