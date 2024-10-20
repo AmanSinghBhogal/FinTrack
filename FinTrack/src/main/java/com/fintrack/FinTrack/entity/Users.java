@@ -12,15 +12,32 @@ import jakarta.persistence.Table;
 @Component
 @Entity
 public class Users {
+	
 	@Id
 	private String uid;
+	
+	@Column(name="name", length=36)
 	private String name;
+	
+	@Column(name="password", length=100)
 	private String password;
+	
+	@Column(name="age", length=256)
 	private int age;
+	
+	@Column(name="gender", length=1)
 	private char gender;
+	
+	@Column (name="wallet")
 	private double wallet;
+	
+	@Column (name="email", length=50)
 	private String email;
+	
+	@Column (name="mob", length=14)
 	private String mob;
+	
+	@Column (name="cur", length=10)
 	private String cur;
 	
 	public String getUid() {
