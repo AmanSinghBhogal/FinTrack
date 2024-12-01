@@ -1,6 +1,7 @@
 package com.fintrack.FinTrack.entity;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
@@ -13,13 +14,16 @@ import jakarta.persistence.TemporalType;
 @Component
 @Entity
 public class Expense {
-
+	
 	@Id
+	private String eid;
+
+	@Column
 	private String uid;
 	
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
 	@Column(name="date")
-	private Calendar date;
+	private String date;
 	
 	@Column(name="dineout")
 	private double dineout;
@@ -67,12 +71,20 @@ public class Expense {
 	public void setUid(String uid) {
 		this.uid = uid;
 	}
+	
+	public String getEid() {
+		return eid;
+	}
 
-	public Calendar getDate() {
+	public void setEid(String eid) {
+		this.eid = eid;
+	}
+
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Calendar date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 

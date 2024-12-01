@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS USERS (
 
 -- Creating Budget Allocation Table:
 CREATE TABLE IF NOT EXISTS BUDGET_ALLOC (
+    bid VARCHAR(36) PRIMARY KEY,
 	uid VARCHAR(36) ,
     year INT(4) NOT NULL,
     month ENUM('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'),
@@ -40,6 +41,7 @@ CREATE TABLE IF NOT EXISTS BUDGET_ALLOC (
 
 -- Creating Expense Table:
 CREATE TABLE IF NOT EXISTS Expense (
+    eid VARCHAR(36) PRIMARY KEY,
 	uid varchar(36),
     date DATE NOT NULL,
 	dineout DOUBLE,
@@ -60,6 +62,7 @@ CREATE TABLE IF NOT EXISTS Expense (
 
 -- Creating Expenses_desc Table:
 CREATE TABLE IF NOT EXISTS Expenses_desc (
+    edid VARCHAR(36) PRIMARY KEY,
 	uid VARCHAR(36),
     date DATE,
     dineout_desc VARCHAR(500),
@@ -80,6 +83,7 @@ CREATE TABLE IF NOT EXISTS Expenses_desc (
 
 -- Creating Table Fixed_Charges:
 CREATE TABLE IF NOT EXISTS Fixed_Charges (
+    fid VARCHAR(36) PRIMARY KEY,
 	uid VARCHAR(36),
     date DATE,
     rent DOUBLE,
@@ -95,6 +99,7 @@ CREATE TABLE IF NOT EXISTS Fixed_Charges (
 
 -- Creating Table Investment:
 CREATE TABLE IF NOT EXISTS Investment (
+    iid VARCHAR(36) PRIMARY KEY,
 	uid VARCHAR(36),
     date DATE,
     name VARCHAR(250) NOT NULL,

@@ -11,6 +11,9 @@ import jakarta.persistence.Id;
 public class Budget_alloc {
 
 	@Id
+	private String bid;
+	
+	@Column
 	private String uid;
 	
 	@Column(name="year")
@@ -64,6 +67,14 @@ public class Budget_alloc {
 
 	public void setUid(String uid) {
 		this.uid = uid;
+	}
+	
+	public String getBid() {
+		return bid;
+	}
+
+	public void setBid(String bid) {
+		this.bid = bid;
 	}
 
 	public int getYear() {
