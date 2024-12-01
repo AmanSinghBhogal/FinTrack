@@ -19,12 +19,12 @@ import com.fintrack.FinTrack.service.ExpenseService;
 public class ExpenseControllerImpl implements ExpenseController{
 
 	@Autowired
-	ExpenseService expenseServive;
+	ExpenseService expenseService;
 	
 	@GetMapping("/{uid}")
 	@Override
 	public ResponseEntity<List<Expense>> getExpenseByUid(@PathVariable("uid") String uid) {
-		List<Expense> resp = expenseServive.findExpenseByUid(uid);
+		List<Expense> resp = expenseService.findExpenseByUid(uid);
 		return new ResponseEntity<>(resp, HttpStatus.OK);
 	}
 
@@ -32,21 +32,21 @@ public class ExpenseControllerImpl implements ExpenseController{
 	@Override
 	public ResponseEntity<Expense> getExpenseByUidDate(@PathVariable("uid") String uid, @PathVariable("date") String date) {
 		System.out.println(date);
-		Expense resp = expenseServive.findExpenseByUidDate(uid, date);
+		Expense resp = expenseService.findExpenseByUidDate(uid, date);
 		return new ResponseEntity<>(resp, HttpStatus.OK);
 	}
 
 	@GetMapping("/{uid}/year/{year}")
 	@Override
 	public ResponseEntity<List<Expense>> getExpenseByUidYear(@PathVariable("uid") String uid,@PathVariable("year")  int year) {
-		List<Expense> resp = expenseServive.findExpenseByUidYear(uid, year);
+		List<Expense> resp = expenseService.findExpenseByUidYear(uid, year);
 		return new ResponseEntity<>(resp, HttpStatus.OK);
 	}
 
 	@GetMapping("/{uid}/{year}/{month}")
 	@Override
 	public ResponseEntity<List<Expense>> getExpenseByUidYearMonth(@PathVariable("uid") String uid, @PathVariable("year") int year, @PathVariable("month") int month) {
-		List<Expense> resp = expenseServive.findExpenseByUidYearMonth(uid, year, month);
+		List<Expense> resp = expenseService.findExpenseByUidYearMonth(uid, year, month);
 		System.out.println("year -> month function called.");
 		return new ResponseEntity<>(resp, HttpStatus.OK);
 	}
@@ -56,7 +56,7 @@ public class ExpenseControllerImpl implements ExpenseController{
 	public ResponseEntity<List<Expense>> getExpenseByUidRange(@PathVariable("uid") String uid, @PathVariable("sdate") String sDate, @PathVariable("edate") String eDate) {
 		// Date should be in the format of YYYY-MM-DD
 		
-		List<Expense> resp = expenseServive.findExpenseByUidRange(uid, sDate,eDate);
+		List<Expense> resp = expenseService.findExpenseByUidRange(uid, sDate,eDate);
 		return new ResponseEntity<>(resp, HttpStatus.OK);
 	}
 
