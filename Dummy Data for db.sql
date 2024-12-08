@@ -1,51 +1,78 @@
--- Inserting dummy data into USERS table
 INSERT INTO USERS (uid, name, password, age, gender, wallet, email, mob, cur) VALUES
-('550e8400-e29b-41d4-a716-446655440000', 'Rajesh Kumar', 'password123', 29, 'M', 1500.50, 'rajesh.kumar@example.com', '9876543210', 'INR'),
-('550e8400-e29b-41d4-a716-446655440001', 'Priya Sharma', 'mypassword', 25, 'F', 3200.00, 'priya.sharma@example.com', '9876543211', 'INR'),
-('550e8400-e29b-41d4-a716-446655440002', 'Sanjay Patel', 'helloWorld', 34, 'M', 450.75, 'sanjay.patel@example.com', '9876543212', 'INR'),
-('550e8400-e29b-41d4-a716-446655440003', 'Meena Reddy', 'meena2024', 28, 'F', 2200.10, 'meena.reddy@example.com', '9876543213', 'INR'),
-('550e8400-e29b-41d4-a716-446655440004', 'Amit Singh', 'password456', 30, 'M', 1100.00, 'amit.singh@example.com', '9876543214', 'INR');
+(UUID(), 'John Doe', 'hashedpassword1', 25, 'M', 1000.0, 'johndoe@example.com', '1234567890', 'INR'),
+(UUID(), 'Jane Smith', 'hashedpassword2', 30, 'F', 1500.0, 'janesmith@example.com', '1234567891', 'INR'),
+(UUID(), 'Sam Brown', 'hashedpassword3', 28, 'M', 800.0, 'sambrown@example.com', '1234567892', 'INR'),
+(UUID(), 'Lisa Ray', 'hashedpassword4', 22, 'F', 1200.0, 'lisaray@example.com', '1234567893', 'INR'),
+(UUID(), 'Tom White', 'hashedpassword5', 32, 'M', 900.0, 'tomwhite@example.com', '1234567894', 'INR'),
+(UUID(), 'Emma Stone', 'hashedpassword6', 27, 'F', 1100.0, 'emmastone@example.com', '1234567895', 'INR'),
+(UUID(), 'Alex Black', 'hashedpassword7', 35, 'M', 1400.0, 'alexblack@example.com', '1234567896', 'INR'),
+(UUID(), 'Mia Green', 'hashedpassword8', 26, 'F', 1050.0, 'miagreen@example.com', '1234567897', 'INR'),
+(UUID(), 'Chris Blue', 'hashedpassword9', 29, 'M', 950.0, 'chrisblue@example.com', '1234567898', 'INR'),
+(UUID(), 'Sophia Grey', 'hashedpassword10', 24, 'F', 1300.0, 'sophiagrey@example.com', '1234567899', 'INR');
 
--- Inserting dummy data into the BUDGET_ALLOC table
-INSERT INTO BUDGET_ALLOC (uid, year, month, rent, water, electricity, travel, entertainment, medical, debt, food, savings, investment, mob_internet, shopping, income) VALUES
-('550e8400-e29b-41d4-a716-446655440000', 2024, 'Jan', 15000.00, 800.00, 1200.00, 3000.00, 2000.00, 1000.00, 1500.00, 6000.00, 2000.00, 2500.00, 500.00, 1500.00, 60000.00),
-('550e8400-e29b-41d4-a716-446655440001', 2024, 'Feb', 15500.00, 850.00, 1300.00, 3200.00, 1800.00, 1200.00, 1000.00, 6500.00, 2500.00, 2000.00, 600.00, 2000.00, 62000.00),
-('550e8400-e29b-41d4-a716-446655440002', 2024, 'Mar', 16000.00, 900.00, 1400.00, 3500.00, 2500.00, 900.00, 800.00, 7000.00, 3000.00, 1500.00, 700.00, 1800.00, 64000.00),
-('550e8400-e29b-41d4-a716-446655440003', 2024, 'Apr', 16200.00, 950.00, 1450.00, 4000.00, 2200.00, 1300.00, 500.00, 6800.00, 2000.00, 1200.00, 400.00, 2200.00, 63000.00),
-('550e8400-e29b-41d4-a716-446655440004', 2024, 'May', 15800.00, 920.00, 1300.00, 3700.00, 2100.00, 1100.00, 700.00, 6200.00, 2800.00, 2500.00, 550.00, 1900.00, 60000.00);
+INSERT INTO BUDGET_ALLOC (bid, uid, year, month, rent, water, electricity, travel, entertainment, medical, debt, food, savings, investment, mob_internet, shopping, income) VALUES
+(UUID(), (SELECT uid FROM USERS LIMIT 1), 2024, 'Jan', 500, 50, 100, 150, 75, 200, 300, 250, 400, 150, 50, 100, 2000),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 1), 2024, 'Feb', 600, 60, 110, 160, 80, 210, 310, 260, 410, 160, 60, 110, 2100),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 2), 2024, 'Mar', 550, 55, 105, 155, 78, 205, 305, 255, 405, 155, 55, 105, 2050),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 3), 2024, 'Apr', 520, 52, 102, 152, 76, 202, 302, 252, 402, 152, 52, 102, 2020),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 4), 2024, 'May', 570, 57, 107, 157, 79, 207, 307, 257, 407, 157, 57, 107, 2070),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 5), 2024, 'Jun', 530, 53, 103, 153, 77, 203, 303, 253, 403, 153, 53, 103, 2030),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 6), 2024, 'Jul', 580, 58, 108, 158, 81, 208, 308, 258, 408, 158, 58, 108, 2080),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 7), 2024, 'Aug', 540, 54, 104, 154, 78, 204, 304, 254, 404, 154, 54, 104, 2040),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 8), 2024, 'Sep', 590, 59, 109, 159, 82, 209, 309, 259, 409, 159, 59, 109, 2090),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 9), 2024, 'Oct', 560, 56, 106, 156, 80, 206, 306, 256, 406, 156, 56, 106, 2060);
 
--- Inserting dummy data into the Expense table
-INSERT INTO Expense (uid, date, dineout, vegetable, dairy, fruits, meat, travel, personal, entertainment, cloths, furniture, electronics, grooming, other) VALUES
-('550e8400-e29b-41d4-a716-446655440000', '2024-01-10', 1500.00, 300.00, 200.00, 250.00, 600.00, 800.00, 400.00, 600.00, 700.00, 500.00, 1200.00, 300.00, 100.00),
-('550e8400-e29b-41d4-a716-446655440001', '2024-02-15', 1200.00, 350.00, 180.00, 200.00, 700.00, 1000.00, 300.00, 800.00, 600.00, 800.00, 1500.00, 250.00, 200.00),
-('550e8400-e29b-41d4-a716-446655440002', '2024-03-20', 1700.00, 250.00, 220.00, 300.00, 800.00, 600.00, 500.00, 400.00, 300.00, 700.00, 900.00, 150.00, 150.00),
-('550e8400-e29b-41d4-a716-446655440003', '2024-04-05', 1400.00, 320.00, 210.00, 270.00, 500.00, 900.00, 350.00, 500.00, 800.00, 600.00, 1100.00, 200.00, 50.00),
-('550e8400-e29b-41d4-a716-446655440004', '2024-05-12', 1600.00, 280.00, 190.00, 300.00, 750.00, 700.00, 600.00, 900.00, 400.00, 300.00, 800.00, 100.00, 300.00);
+INSERT INTO Expense (eid, uid, date, dineout, vegetable, dairy, fruits, meat, travel, personal, entertainment, cloths, furniture, electronics, grooming, other) VALUES
+(UUID(), (SELECT uid FROM USERS LIMIT 1), '2024-01-01', 20, 15, 10, 8, 12, 30, 25, 20, 15, 10, 35, 5, 10),
+(UUID(), (SELECT uid FROM USERS LIMIT 1), '2024-01-02', 20, 15, 10, 8, 12, 30, 25, 20, 15, 10, 35, 5, 10),
+(UUID(), (SELECT uid FROM USERS LIMIT 1), '2024-02-01', 20, 15, 10, 8, 12, 30, 25, 20, 15, 10, 35, 5, 10),
+(UUID(), (SELECT uid FROM USERS LIMIT 1), '2023-02-01', 20, 15, 10, 8, 12, 30, 25, 20, 15, 10, 35, 5, 10),
+(UUID(), (SELECT uid FROM USERS LIMIT 1), '2023-01-01', 20, 15, 10, 8, 12, 30, 25, 20, 15, 10, 35, 5, 10),
+(UUID(), (SELECT uid FROM USERS LIMIT 1), '2024-05-22', 20, 15, 10, 8, 12, 30, 25, 20, 15, 10, 35, 5, 10),
+(UUID(), (SELECT uid FROM USERS LIMIT 1), '2024-12-05', 20, 15, 10, 8, 12, 30, 25, 20, 15, 10, 35, 5, 10),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 1), '2024-01-02', 22, 16, 11, 9, 13, 32, 26, 21, 16, 11, 36, 6, 11),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 2), '2024-01-03', 24, 18, 12, 10, 14, 34, 27, 22, 17, 12, 37, 7, 12),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 3), '2024-01-04', 26, 20, 13, 11, 15, 36, 28, 23, 18, 13, 38, 8, 13),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 4), '2024-01-05', 28, 21, 14, 12, 16, 38, 29, 24, 19, 14, 39, 9, 14),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 5), '2024-01-06', 30, 23, 15, 13, 17, 40, 30, 25, 20, 15, 40, 10, 15),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 6), '2024-01-07', 32, 24, 16, 14, 18, 42, 31, 26, 21, 16, 41, 11, 16),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 7), '2024-01-08', 34, 26, 17, 15, 19, 44, 32, 27, 22, 17, 42, 12, 17),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 8), '2024-01-09', 36, 27, 18, 16, 20, 46, 33, 28, 23, 18, 43, 13, 18),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 9), '2024-01-10', 38, 29, 19, 17, 21, 48, 34, 29, 24, 19, 44, 14, 19);
 
+INSERT INTO Expenses_desc (edid, uid, date, dineout_desc, vegetable_desc, dairy_desc, fruits_desc, meat_desc, travel_desc, personal_desc, entertainment_desc, cloths_desc, furniture_desc, electronics_desc, grooming_desc, other_desc) VALUES
+(UUID(), (SELECT uid FROM USERS LIMIT 1), '2024-01-01', 'Lunch with friends', 'Grocery shopping', 'Milk and yogurt', 'Apples and bananas', 'Chicken breast', 'Bus fare', 'Personal items', 'Movie night', 'Casual T-shirt', 'Desk chair', 'Phone charger', 'Haircut', 'Miscellaneous'),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 1), '2024-01-02', 'Dinner at restaurant', 'Fresh vegetables', 'Cheese block', 'Oranges and berries', 'Beef steak', 'Taxi fare', 'Skincare products', 'Concert ticket', 'Winter jacket', 'Coffee table', 'USB cable', 'Salon visit', 'Home supplies'),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 2), '2024-01-03', 'Brunch outing', 'Organic vegetables', 'Butter and cream', 'Mixed fruits', 'Fish', 'Train ticket', 'Toiletries', 'Sports event', 'Running shoes', 'Side table', 'Wireless earphones', 'Shaving kit', 'Pet food'),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 3), '2024-01-04', 'Quick snack', 'Canned veggies', 'Greek yogurt', 'Pineapple', 'Pork', 'Bus pass', 'Cosmetics', 'Amusement park', 'Formal shirt', 'Shelf', 'Laptop charger', 'Hair styling', 'Stationery'),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 4), '2024-01-05', 'Family dinner', 'Bulk vegetables', 'Milk carton', 'Mangoes', 'Lamb chops', 'Car rental', 'Spa kit', 'Comedy show', 'Jeans', 'Bookshelf', 'Screen protector', 'Facial kit', 'Cleaning supplies'),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 5), '2024-01-06', 'Evening tea', 'Leafy greens', 'Almond milk', 'Strawberries', 'Turkey', 'Bicycle hire', 'Fitness gear', 'Art exhibit', 'Blazer', 'Lamp', 'Power bank', 'Manicure', 'Gardening tools'),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 6), '2024-01-07', 'Café outing', 'Exotic vegetables', 'Sour cream', 'Papaya', 'Shrimp', 'Flight ticket', 'Gym accessories', 'Opera ticket', 'Raincoat', 'Stool', 'Smartwatch band', 'Foot massage', 'Kitchenware'),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 7), '2024-01-08', 'Takeaway lunch', 'Frozen vegetables', 'Soy milk', 'Watermelon', 'Duck meat', 'Metro pass', 'Health supplements', 'Karaoke night', 'Scarf', 'Couch', 'Portable speaker', 'Face wash', 'Office supplies'),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 8), '2024-01-09', 'Street food', 'Root vegetables', 'Oat milk', 'Grapes', 'Salmon', 'Bus fare', 'Perfume', 'Music festival', 'Socks', 'Dresser', 'Bluetooth adapter', 'Hand cream', 'Baking supplies'),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 9), '2024-01-10', 'Birthday celebration', 'Fresh herbs', 'Lactose-free milk', 'Peaches', 'Crab', 'Uber ride', 'Lip balm', 'Stand-up comedy', 'Sneakers', 'Mirror', 'Headphones', 'Beard oil', 'DIY tools');
 
--- Inserting dummy data into the Expenses_desc table
-INSERT INTO Expenses_desc (uid, date, dineout_desc, vegetable_desc, dairy_desc, fruits_desc, meat_desc, travel_desc, personal_desc, entertainment_desc, cloths_desc, furniture_desc, electronics_desc, grooming_desc, other_desc) VALUES
-('550e8400-e29b-41d4-a716-446655440000', '2024-01-10', 'Dinner at Italian Restaurant', 'Fresh spinach, carrots, and bell peppers', 'Organic milk and cheese', 'Bananas and apples', 'Chicken breast for stir fry', 'Taxi to downtown', 'New shoes purchase', 'Movie tickets for weekend', 'Winter coat', 'New dining table', 'Smartphone upgrade', 'Haircut at local salon', 'Gym membership fee'),
-('550e8400-e29b-41d4-a716-446655440001', '2024-02-15', 'Lunch at local cafe', 'Potatoes and tomatoes', 'Butter and yogurt', 'Seasonal fruits', 'Pork chops for grilling', 'Train fare for business trip', 'Books and stationery', 'Concert tickets', 'Formal shirt', 'Bookshelf for study', 'Laptop accessories', 'Facial treatment', 'Gifts for friends'),
-('550e8400-e29b-41d4-a716-446655440002', '2024-03-20', 'Brunch with friends', 'Mixed salad greens', 'Cheese for breakfast', 'Oranges and grapes', 'Ground beef for tacos', 'Car rental for weekend', 'Personal care products', 'Board games for family night', 'Jeans and sneakers', 'Desk lamp for work', 'Gaming console', 'Nail salon visit', 'Charity donation'),
-('550e8400-e29b-41d4-a716-446655440003', '2024-04-05', 'Takeout from Chinese restaurant', 'Cabbage and onions', 'Milk for coffee', 'Strawberries and kiwis', 'Fish for grilling', 'Bus fare for weekend trip', 'Cosmetics purchase', 'Spa day', 'Casual wear', 'Sofa for living room', 'Headphones', 'Hair color treatment', 'House cleaning supplies'),
-('550e8400-e29b-41d4-a716-446655440004', '2024-05-12', 'Dinner at a seafood place', 'Seasonal veggies', 'Yogurt for breakfast', 'Apples and berries', 'Lamb chops for grilling', 'Flight tickets for vacation', 'Self-care items', 'Theme park tickets', 'Summer dresses', 'Patio furniture', 'Smartwatch', 'Massage therapy', 'Miscellaneous items');
+INSERT INTO Fixed_Charges (fid, uid, date, rent, water, electricity, internet, investment, savings, debt, gas) VALUES
+(UUID(), (SELECT uid FROM USERS LIMIT 1), '2024-01-01', 1000, 50, 120, 60, 300, 500, 100, 30),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 1), '2024-01-02', 1050, 55, 130, 65, 310, 510, 110, 35),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 2), '2024-01-03', 1020, 52, 125, 62, 320, 520, 120, 40),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 3), '2024-01-04', 1080, 58, 135, 68, 330, 530, 130, 45),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 4), '2024-01-05', 1030, 53, 128, 63, 340, 540, 115, 50),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 5), '2024-01-06', 1040, 54, 132, 66, 350, 550, 105, 55),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 6), '2024-01-07', 1090, 59, 138, 69, 360, 560, 115, 60),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 7), '2024-01-08', 1070, 57, 140, 64, 370, 570, 125, 65),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 8), '2024-01-09', 1060, 56, 127, 61, 380, 580, 135, 70),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 9), '2024-01-10', 1100, 60, 140, 70, 390, 590, 140, 75);
 
--- Inserting dummy data into the Fixed_Charges table
-INSERT INTO Fixed_Charges (uid, date, rent, water, electricity, internet, investment, savings, debt, gas) VALUES
-('550e8400-e29b-41d4-a716-446655440000', '2024-01-01', 15000.00, 800.00, 1200.00, 1000.00, 5000.00, 2000.00, 1500.00, 600.00),
-('550e8400-e29b-41d4-a716-446655440001', '2024-02-01', 15500.00, 850.00, 1300.00, 1100.00, 5200.00, 2100.00, 1600.00, 700.00),
-('550e8400-e29b-41d4-a716-446655440002', '2024-03-01', 16000.00, 900.00, 1400.00, 950.00, 5300.00, 2200.00, 1700.00, 650.00),
-('550e8400-e29b-41d4-a716-446655440003', '2024-04-01', 16200.00, 950.00, 1450.00, 1050.00, 5400.00, 2300.00, 1800.00, 700.00),
-('550e8400-e29b-41d4-a716-446655440004', '2024-05-01', 15800.00, 920.00, 1500.00, 980.00, 5500.00, 2400.00, 1900.00, 720.00);
-
--- Inserting dummy data into the Investment table
-INSERT INTO Investment (uid, date, name, category, description) VALUES
-('550e8400-e29b-41d4-a716-446655440000', '2024-01-15', 'Dream House Purchase', 'Real Estate', 'Invested in a 2BHK apartment in the city center.'),
-('550e8400-e29b-41d4-a716-446655440001', '2024-02-20', 'Gold Jewelry', 'Gold', 'Purchased gold jewelry for personal use and investment.'),
-('550e8400-e29b-41d4-a716-446655440002', '2024-03-10', 'Digital Gold Investment', 'Digital Gold', 'Invested in digital gold through an online platform.'),
-('550e8400-e29b-41d4-a716-446655440003', '2024-04-25', 'Bitcoin Purchase', 'Cryptocurrency', 'Bought Bitcoin as part of a diversified investment portfolio.'),
-('550e8400-e29b-41d4-a716-446655440004', '2024-05-30', 'Government Bonds', 'Bonds', 'Invested in government bonds for stable returns.'),
-('550e8400-e29b-41d4-a716-446655440000', '2024-06-15', 'Tech Stocks', 'Stocks', 'Purchased shares of leading tech companies.'),
-('550e8400-e29b-41d4-a716-446655440001', '2024-07-20', 'Mutual Funds', 'Funds', 'Invested in mutual funds for long-term wealth accumulation.');
+INSERT INTO Investment (iid, uid, date, name, category, description) VALUES
+(UUID(), (SELECT uid FROM USERS LIMIT 1), '2024-01-01', 'ABC Real Estate', 'Real Estate', 'Residential property investment in downtown area'),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 1), '2024-01-02', 'Gold Holdings', 'Gold', 'Investment in physical gold bars and coins'),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 2), '2024-01-03', 'Digital Gold Platform', 'Digital Gold', 'Purchase of digital gold through online platform'),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 3), '2024-01-04', 'Bitcoin', 'Cryptocurrency', 'Investment in Bitcoin for long-term growth'),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 4), '2024-01-05', 'Government Bonds', 'Bonds', 'Investment in 10-year government bonds with fixed interest'),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 5), '2024-01-06', 'Blue Chip Stocks', 'Stocks', 'Stocks in high-value companies with good dividend yields'),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 6), '2024-01-07', 'Mutual Funds - Equity', 'Funds', 'Equity mutual fund for high returns over time'),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 7), '2024-01-08', 'Property in Suburb', 'Real Estate', 'Residential plot in suburban area for development'),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 8), '2024-01-09', 'Silver Investment', 'Gold', 'Investment in physical silver as a commodity hedge'),
+(UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 9), '2024-01-10', 'Tech Startup Shares', 'Stocks', 'Investment in a tech startup with potential for high growth');
 

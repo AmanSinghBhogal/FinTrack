@@ -1,0 +1,47 @@
+The ExpenseControllerImpl class is a REST controller that handles HTTP requests related to user expenses. It implements the ExpenseController interface and provides endpoints to retrieve expense data for a user based on various criteria such as user ID, date, year, month, or date range.
+
+API's
+-> base endpoint : localhost:8080/expense
+   Description: Base endpoint
+   Returns: Null
+  
+->  endpoint : /{uid}
+	Data Type : Uuid
+	Description: Fetches a list of all expenses for the given user ID.
+	Parameters:
+		uid: The unique identifier of the user.
+	Returns: A ResponseEntity containing an Expense object with HTTP status 200 OK
+
+-> endpoint : /{uid}/{date}
+	Data Type : {uid}- Uuid , {date}- String
+	Description: Fetches a single expense record for the given user ID and a specific date.
+	Parameters:
+		uid: The unique identifier of the user.
+		date: The date for which the expense is to be retrieved (format: YYYY-MM-DD).
+	Returns: A ResponseEntity containing an Expense object with HTTP status 200 OK
+
+-> endpoint : /{uid}/year/{year}
+	Data Type : {uid}- Uuid , year- keyword, {year}- String
+	Description : Fetches all expenses for the given user ID and year.
+	Parameters:
+		uid: The unique identifier of the user.
+		year: The year for which expenses are to be retrieved.
+	Returns: A ResponseEntity containing an Expense object with HTTP status 200 OK
+	
+-> endpoint : /{uid}/{year}/{month}
+	Data Type : {uid}- Uuid ,{year}- String, {month}- Int
+	Description: Fetches all expenses for the given user ID, year, and month.
+	Parameters:
+		uid: The unique identifier of the user.
+		year: The year for which expenses are to be retrieved.
+		month: The month for which expenses are to be retrieved.
+	Returns: A ResponseEntity containing an Expense object with HTTP status 200 OK
+
+-> endpoint : /{uid}/range/{sdate}/{edate}
+	Data Type : {uid}- Uuid ,range- keyword, {sdate}- String, {edate}- String
+	Description: Fetches all expenses for the given user ID within a specified date range.
+	Parameters:
+		uid: The unique identifier of the user.
+		sDate: The start date of the range (format: YYYY-MM-DD).
+		eDate: The end date of the range (format: YYYY-MM-DD).
+	Returns: A ResponseEntity containing an Expense object with HTTP status 200 OK

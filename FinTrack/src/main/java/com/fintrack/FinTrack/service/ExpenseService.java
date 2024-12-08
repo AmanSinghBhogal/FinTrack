@@ -1,6 +1,6 @@
 package com.fintrack.FinTrack.service;
 
-import java.util.Calendar;
+
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ public interface ExpenseService {
 	List<Expense> findExpenseByUid(String uid);
 	
 	// Returns expense of an user for a particular date.
-	Expense findExpenseByUidDate(String uid, Calendar date);
+	Expense findExpenseByUidDate(String uid, String date);
 
 	// Returns expenses of an user for a particular year.
 	List<Expense> findExpenseByUidYear(String uid, int year);
@@ -23,5 +23,5 @@ public interface ExpenseService {
 	List<Expense> findExpenseByUidYearMonth(String uid, int year, int month);
 	
 	// Returns expenses of an user for a particular date range.
-	List<Expense> findExpenseByUidRange(String uid, Calendar sDate, Calendar eDate);
+	List<Expense> findExpenseByUidRange(String uid, String sDate, String eDate);
 }
