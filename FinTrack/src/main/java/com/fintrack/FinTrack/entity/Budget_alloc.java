@@ -13,7 +13,7 @@ public class Budget_alloc {
 	@Id
 	private String bid;
 	
-	@Column
+	@Column(name="uid")
 	private String uid;
 	
 	@Column(name="year")
