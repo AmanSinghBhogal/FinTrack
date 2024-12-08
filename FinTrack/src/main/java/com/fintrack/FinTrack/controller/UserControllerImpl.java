@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,9 +20,19 @@ public class UserControllerImpl implements UserController {
 	@Autowired
 	UserService userService;
 	
+	@Override
 	@GetMapping
 	public ResponseEntity<List<Users>> getAll(){
 		List<Users> allUsers = userService.findAllUsers();
 		return new ResponseEntity<>(allUsers,HttpStatus.OK);
 	}
+
+	@Override
+	@GetMapping("/{uid}")
+	public ResponseEntity<Users> getUserByUid(@PathVariable("uid") String uid) {
+		Users user = userService.findUserByUid(uid);
+		return new ResponseEntity<>(user,HttpStatus.OK);
+	}
+	
+	
 }

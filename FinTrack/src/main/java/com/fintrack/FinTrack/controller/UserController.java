@@ -10,4 +10,6 @@ public interface UserController {
 	
 	ResponseEntity<List<Users>> getAll();
 	
+	ResponseEntity<Users> getUserByUid(String uid);
+	
 }

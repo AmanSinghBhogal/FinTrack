@@ -9,6 +9,7 @@ import java.util.List;
 public interface UserService {
 	
 	List<Users> findAllUsers();
-//	User findUserByUid(String uid);
+	
+	Users findUserByUid(String uid);
 
 }

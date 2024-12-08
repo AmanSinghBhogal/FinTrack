@@ -1,3 +1,55 @@
+Documentation for User endpoints
+The UserControllerImpl class is a REST controller that handles HTTP requests related to user data. It interacts with the UserService to retrieve user information and exposes an endpoint to fetch all users.
+
+API's
+-> base endpoint : localhost:8080/users
+   Description: Base endpoint
+   Returns: List of users
+
+->  endpoint : /{uid}
+	Data Type : Uuid
+	Description: Fetches user for the given user ID.
+	Parameters:
+		uid: The unique identifier of the user.
+	Returns: A ResponseEntity containing an User object with HTTP status 200 OK
+
+
+
+Documentation for Budget Allocation endpoints
+The Budget_allocControllerImpl class is a REST controller that handles HTTP requests related to budget allocations for users. It implements the Budget_allocController interface and provides endpoints to retrieve budget allocation data based on user ID, year, and month.
+
+API's
+-> base endpoint : localhost:8080/budget_alloc
+   Description: Base endpoint
+   Returns: Null
+
+->  endpoint : /{uid}
+	Data Type : Uuid
+	Description: Fetches all budget allocations for a specific user by user ID.
+	Parameters:
+		uid: The unique identifier of the user.
+	Returns: A ResponseEntity containing list of Budget_alloc objects with HTTP status 200 OK
+
+->  endpoint : /{uid}/{year}
+	Data Type : {uid}- Uuid , {year}- String
+	Description: Fetches all budget allocations for a specific user by user ID and year.
+	Parameters:
+		uid: The unique identifier of the user.
+		year: The year for which budget allocations are to be retrieved.
+	Returns: A ResponseEntity containing list of Budget_alloc objects with HTTP status 200 OK
+
+->  endpoint : /{uid}/{year}/{month}
+	Data Type : {uid}- Uuid , {year}- String, {month}- String
+	Description: Fetches all budget allocations for a specific user by user ID, year and month.
+	Parameters:
+		uid: The unique identifier of the user.
+		year: The year for which budget allocations are to be retrieved.
+		month: The month (as a string) for which budget allocations are to be retrieved.
+	Returns: A ResponseEntity containing list of Budget_alloc objects with HTTP status 200 OK
+
+
+
+Documentation for Expense endpoints
 The ExpenseControllerImpl class is a REST controller that handles HTTP requests related to user expenses. It implements the ExpenseController interface and provides endpoints to retrieve expense data for a user based on various criteria such as user ID, date, year, month, or date range.
 
 API's

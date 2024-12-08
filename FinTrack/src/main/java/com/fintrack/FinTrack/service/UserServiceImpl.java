@@ -25,13 +25,13 @@ public class UserServiceImpl implements UserService {
 			throw new RuntimeException("Users not found.");
 	}
 
-//	@Override
-//	public User findUserByUid(String uid) {
-//		
-//		User thisUser;
-//		Optional<User> user=null;
-//		user = userRepository.findById(uid);
-//		return null;
-//	}
+	@Override
+	public Users findUserByUid(String uid) {
+		
+		Users thisUser;
+		Optional<Users> user= userRepository.findById(uid);
+		thisUser =  user.get();
+		return thisUser;
+	}
 	
 }
