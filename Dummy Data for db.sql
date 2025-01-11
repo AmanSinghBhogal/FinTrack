@@ -76,3 +76,44 @@ INSERT INTO Investment (iid, uid, date, name, category, description) VALUES
 (UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 8), '2024-01-09', 'Silver Investment', 'Gold', 'Investment in physical silver as a commodity hedge'),
 (UUID(), (SELECT uid FROM USERS LIMIT 1 OFFSET 9), '2024-01-10', 'Tech Startup Shares', 'Stocks', 'Investment in a tech startup with potential for high growth');
 
+-- Expense_desc new changes
+
+-- Creating Expenses_desc Table:
+CREATE TABLE IF NOT EXISTS Expenses_desc (
+    edid VARCHAR(36) PRIMARY KEY,
+	uid VARCHAR(36),
+    date DATE,
+    dineout_desc VARCHAR(500),
+    vegetable_desc VARCHAR(500),
+    dairy_desc VARCHAR(500),
+    fruits_desc VARCHAR(500),
+    meat_desc VARCHAR(500),
+    travel_desc VARCHAR(500),
+    personal_desc VARCHAR(500),
+    entertainment_desc VARCHAR(500),
+    cloths_desc VARCHAR(500),
+    furniture_desc VARCHAR(500),
+    electronics_desc VARCHAR(500),
+    grooming_desc VARCHAR(500),
+    other_desc VARCHAR(500),
+    FOREIGN KEY (edid) REFERENCES expense(eid)
+);
+
+
+INSERT INTO Expenses_desc (edid, uid, date, dineout_desc, vegetable_desc, dairy_desc, fruits_desc, meat_desc, travel_desc, personal_desc, entertainment_desc, cloths_desc, furniture_desc, electronics_desc, grooming_desc, other_desc) VALUES
+('af305784-9e8e-11ef-823d-0897986f1b67', '80b67db3-9e8d-11ef-823d-0897986f1b67', '2024-01-02', 'Lunch with friends', 'Grocery shopping', 'Milk and yogurt', 'Apples and bananas', 'Chicken breast', 'Bus fare', 'Personal items', 'Movie night', 'Casual T-shirt', 'Desk chair', 'Phone charger', 'Haircut', 'Miscellaneous'),
+('af30652a-9e8e-11ef-823d-0897986f1b67', '80b686df-9e8d-11ef-823d-0897986f1b67', '2024-01-03', 'Dinner at restaurant', 'Fresh vegetables', 'Cheese block', 'Oranges and berries', 'Beef steak', 'Taxi fare', 'Skincare products', 'Concert ticket', 'Winter jacket', 'Coffee table', 'USB cable', 'Salon visit', 'Home supplies'),
+('af3067c4-9e8e-11ef-823d-0897986f1b67', '80b687c3-9e8d-11ef-823d-0897986f1b67', '2024-01-04', 'Brunch outing', 'Organic vegetables', 'Butter and cream', 'Mixed fruits', 'Fish', 'Train ticket', 'Toiletries', 'Sports event', 'Running shoes', 'Side table', 'Wireless earphones', 'Shaving kit', 'Pet food'),
+('af306b70-9e8e-11ef-823d-0897986f1b67', '80b6885b-9e8d-11ef-823d-0897986f1b67', '2024-01-05', 'Quick snack', 'Canned veggies', 'Greek yogurt', 'Pineapple', 'Pork', 'Bus pass', 'Cosmetics', 'Amusement park', 'Formal shirt', 'Shelf', 'Laptop charger', 'Hair styling', 'Stationery'),
+('af306eaa-9e8e-11ef-823d-0897986f1b67', '80b688bf-9e8d-11ef-823d-0897986f1b67', '2024-01-06', 'Family dinner', 'Bulk vegetables', 'Milk carton', 'Mangoes', 'Lamb chops', 'Car rental', 'Spa kit', 'Comedy show', 'Jeans', 'Bookshelf', 'Screen protector', 'Facial kit', 'Cleaning supplies'),
+('af307109-9e8e-11ef-823d-0897986f1b67', '80b68922-9e8d-11ef-823d-0897986f1b67', '2024-01-07', 'Evening tea', 'Leafy greens', 'Almond milk', 'Strawberries', 'Turkey', 'Bicycle hire', 'Fitness gear', 'Art exhibit', 'Blazer', 'Lamp', 'Power bank', 'Manicure', 'Gardening tools'),
+('af3073fa-9e8e-11ef-823d-0897986f1b67', '80b68985-9e8d-11ef-823d-0897986f1b67', '2024-01-08', 'Café outing', 'Exotic vegetables', 'Sour cream', 'Papaya', 'Shrimp', 'Flight ticket', 'Gym accessories', 'Opera ticket', 'Raincoat', 'Stool', 'Smartwatch band', 'Foot massage', 'Kitchenware'),
+('33d51989-9e8e-11ef-823d-0897986f1b67', '80b68a48-9e8d-11ef-823d-0897986f1b67', '2024-01-09', 'Takeaway lunch', 'Frozen vegetables', 'Soy milk', 'Watermelon', 'Duck meat', 'Metro pass', 'Health supplements', 'Karaoke night', 'Scarf', 'Couch', 'Portable speaker', 'Face wash', 'Office supplies'),
+('33d51cc4-9e8e-11ef-823d-0897986f1b67', '80b68aba-9e8d-11ef-823d-0897986f1b67', '2024-01-10', 'Street food', 'Root vegetables', 'Oat milk', 'Grapes', 'Salmon', 'Bus fare', 'Perfume', 'Music festival', 'Socks', 'Dresser', 'Bluetooth adapter', 'Hand cream', 'Baking supplies'),
+('33d51f49-9e8e-11ef-823d-0897986f1b67', '80b61586-9e8d-11ef-823d-0897986f1b67', '2024-01-01', 'Birthday celebration', 'Fresh herbs', 'Lactose-free milk', 'Peaches', 'Crab', 'Uber ride', 'Lip balm', 'Stand-up comedy', 'Sneakers', 'Mirror', 'Headphones', 'Beard oil', 'DIY tools'),
+('33d52351-9e8e-11ef-823d-0897986f1b67', '80b61586-9e8d-11ef-823d-0897986f1b67', '2024-01-02', 'Street food', 'Root vegetables', 'Oat milk', 'Grapes', 'Salmon', 'Bus fare', 'Perfume', 'Music festival', 'Socks', 'Dresser', 'Bluetooth adapter', 'Hand cream', 'Baking supplies'),
+('33d527e3-9e8e-11ef-823d-0897986f1b67', '80b61586-9e8d-11ef-823d-0897986f1b67', '2023-02-01', 'Street food', 'Root vegetables', 'Oat milk', 'Grapes', 'Salmon', 'Bus fare', 'Perfume', 'Music festival', 'Socks', 'Dresser', 'Bluetooth adapter', 'Hand cream', 'Baking supplies'),
+('33d52aaf-9e8e-11ef-823d-0897986f1b67', '80b61586-9e8d-11ef-823d-0897986f1b67', '2023-02-01', 'Street food', 'Root vegetables', 'Oat milk', 'Grapes', 'Salmon', 'Bus fare', 'Perfume', 'Music festival', 'Socks', 'Dresser', 'Bluetooth adapter', 'Hand cream', 'Baking supplies'),
+('33d52dd0-9e8e-11ef-823d-0897986f1b67', '80b61586-9e8d-11ef-823d-0897986f1b67', '2023-01-01', 'Street food', 'Root vegetables', 'Oat milk', 'Grapes', 'Salmon', 'Bus fare', 'Perfume', 'Music festival', 'Socks', 'Dresser', 'Bluetooth adapter', 'Hand cream', 'Baking supplies'),
+('33d530b5-9e8e-11ef-823d-0897986f1b67', '80b61586-9e8d-11ef-823d-0897986f1b67', '2024-05-22', 'Street food', 'Root vegetables', 'Oat milk', 'Grapes', 'Salmon', 'Bus fare', 'Perfume', 'Music festival', 'Socks', 'Dresser', 'Bluetooth adapter', 'Hand cream', 'Baking supplies'),
+('33d53439-9e8e-11ef-823d-0897986f1b67', '80b61586-9e8d-11ef-823d-0897986f1b67', '2024-12-05', 'Street food', 'Root vegetables', 'Oat milk', 'Grapes', 'Salmon', 'Bus fare', 'Perfume', 'Music festival', 'Socks', 'Dresser', 'Bluetooth adapter', 'Hand cream', 'Baking supplies');

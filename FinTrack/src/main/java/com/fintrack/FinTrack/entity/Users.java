@@ -1,6 +1,7 @@
 // This is layer 2: Model / Data Layer
 package com.fintrack.FinTrack.entity;
 
+import org.hibernate.annotations.UuidGenerator;
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
@@ -14,6 +15,7 @@ import jakarta.persistence.Table;
 public class Users {
 	
 	@Id
+	@UuidGenerator
 	private String uid;
 	
 	@Column(name="name", length=36)
