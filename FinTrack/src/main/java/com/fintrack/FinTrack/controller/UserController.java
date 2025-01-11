@@ -12,4 +12,8 @@ public interface UserController {
 	
 	ResponseEntity<Users> getUserByUid(String uid);
 	
+	ResponseEntity<Users> postUser(Users user);
+	
+	ResponseEntity<Object> loginUser(Users user);
+	
 }

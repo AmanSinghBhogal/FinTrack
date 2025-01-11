@@ -11,5 +11,10 @@ public interface UserService {
 	List<Users> findAllUsers();
 	
 	Users findUserByUid(String uid);
+	
+	// Creating new user
+	Users postUser(Users user);
+
+	String verify(Users user);
 
 }
