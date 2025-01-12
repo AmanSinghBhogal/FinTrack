@@ -1,11 +1,15 @@
 package com.fintrack.FinTrack.service;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ReflectionUtils;
+
 
 import com.fintrack.FinTrack.entity.Budget_alloc;
 import com.fintrack.FinTrack.repository.Budget_allocRepository;
@@ -81,6 +85,31 @@ public class Budget_allocServiceImpl implements Budget_allocService{
 			System.out.println("No Budget Allocation found with the given uid: "+ uid+ ", year: "+year+" and month: "+month);
 			return new ArrayList<Budget_alloc>();
 		}
+	}
+
+	@Override
+	public Budget_alloc postBudgetAlloc(Budget_alloc budget_alloc) {
+		Budget_alloc resp = budget_allocRepository.save(budget_alloc);
+		return resp;
+	}
+
+	@Override
+	public Budget_alloc patchBudgetAlloc(Map<String, Object> feilds) {
+		// Extract bid from request
+		String bid = (String) feilds.get("bid");
+		Boolean flag = budget_allocRepository.existsById(bid);
+		if(flag) {
+			// if Record found do the patch work...
+			Budget_alloc existingBudget =  budget_allocRepository.findById(bid).get();
+			feilds.forEach((key, value) -> {
+				Field feild =  ReflectionUtils.findField(Budget_alloc.class, key);
+				feild.setAccessible(true);
+				ReflectionUtils.setField(feild, existingBudget, value);
+			});
+			return budget_allocRepository.save(existingBudget);
+			 
+		}
+		return null;
 	}
 	
 	

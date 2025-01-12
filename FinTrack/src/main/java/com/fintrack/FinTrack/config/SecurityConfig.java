@@ -51,9 +51,10 @@ public class SecurityConfig {
 		//disabling csrf using Lamba syntax
 		http.csrf(customizer -> customizer.disable());
 		http.authorizeHttpRequests(request -> request
-													.requestMatchers("users/register","users/login")
-													.permitAll()
-													.anyRequest().authenticated());
+													.anyRequest().permitAll());
+//													.requestMatchers("users/register","users/login")
+//													.permitAll()
+//													.anyRequest().authenticated());
 		http.formLogin(Customizer.withDefaults());
 		//For Rest Access
 		http.httpBasic(Customizer.withDefaults());

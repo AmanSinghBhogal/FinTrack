@@ -1,6 +1,7 @@
 package com.fintrack.FinTrack.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -17,4 +18,10 @@ public interface Budget_allocService {
 	
 	//Find Budget allocated by uid, year and month
 	List<Budget_alloc> findBudgetByUidYearMonth(String uid, int year, String month);
+	
+	//Creating record for Budget Allocation 
+	Budget_alloc postBudgetAlloc(Budget_alloc budget_alloc);
+	
+	// Updating a feild
+	Budget_alloc patchBudgetAlloc(Map<String, Object> feilds);
 }

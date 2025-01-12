@@ -1,12 +1,14 @@
 package com.fintrack.FinTrack.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -51,6 +53,7 @@ public class UserControllerImpl implements UserController {
 		Users resp = userService.postUser(user);
 		return new ResponseEntity<>(resp, HttpStatus.OK);
 	}
+	
 
 	@PostMapping("/login")
 	@Override
@@ -58,6 +61,17 @@ public class UserControllerImpl implements UserController {
 		System.out.println("User is "+ user.getEmail() + " pass: "+ user.getPassword());
 		// TODO Auto-generated method stub
 		return new ResponseEntity<>(userService.verify(user), HttpStatus.OK);
+	}
+
+	@PatchMapping()
+	@Override
+	public ResponseEntity<Object> patchUser(@RequestBody Map<String, Object> request) {
+		System.out.println("Patch on Users invoked");
+		Users user = userService.patchUser(request);
+		if(user != null) {
+			return new ResponseEntity<>(user, HttpStatus.OK);
+		}
+		return new ResponseEntity<>(user, HttpStatus.NOT_FOUND);
 	}	
 	
 }
