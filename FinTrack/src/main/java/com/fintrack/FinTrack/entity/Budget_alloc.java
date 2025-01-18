@@ -1,5 +1,6 @@
 package com.fintrack.FinTrack.entity;
 
+import org.hibernate.annotations.UuidGenerator;
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
@@ -11,6 +12,7 @@ import jakarta.persistence.Id;
 public class Budget_alloc {
 
 	@Id
+	@UuidGenerator
 	private String bid;
 	
 	@Column(name="uid")
