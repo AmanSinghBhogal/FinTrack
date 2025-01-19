@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fintrack.FinTrack.entity.Expense;
+import com.fintrack.FinTrack.entity.ExpenseRequest;
 
 @RestController
 public interface ExpenseController {
@@ -14,7 +15,7 @@ public interface ExpenseController {
 	ResponseEntity<List<Expense>> getExpenseByUid(String uid);
 	
 	// Returns expense of an user for a particular date.
-	ResponseEntity<Expense> getExpenseByUidDate(String uid, String date);
+	ResponseEntity<Object> getExpenseByUidDate(String uid, String date);
 
 	// Returns expenses of an user for a particular year.
 	ResponseEntity<List<Expense>> getExpenseByUidYear(String uid, int year);
@@ -24,5 +25,8 @@ public interface ExpenseController {
 	
 	// Returns expenses of an user for a particular date range.
 	ResponseEntity<List<Expense>> getExpenseByUidRange(String uid, String sDate, String eDate);
+	
+	// Post a new Expense
+	ResponseEntity<Object> postExpense(ExpenseRequest request);
 
 }

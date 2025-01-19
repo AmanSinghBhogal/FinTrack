@@ -16,14 +16,14 @@ public class ExpensesDescServiceImpl implements ExpensesDescService{
 	ExpensesDescRepository expensesDescRepository;
 
 	@Override
-	public Expenses_desc findByEdid(String eid) {
+	public Object findByUid(String uid) {
 		Expenses_desc resp = new Expenses_desc();
 		boolean flag  = false;
 		
 		try {
 			Iterable<Expenses_desc> expenses_desc = expensesDescRepository.findAll();
 			for(Expenses_desc e: expenses_desc) {
-				if(e.getEdid().equals(eid)) {
+				if(e.getUid().equals(uid)) {
 					resp = e;
 					flag = true;
 				}
@@ -38,9 +38,17 @@ public class ExpensesDescServiceImpl implements ExpensesDescService{
 			return resp;
 		}
 		else {
-			System.out.println("No expense description found for edid : "+eid);
-			return resp;
+			System.out.println("No expense description found for Uid : "+uid);
+			return null;
 		}
+	}
+
+	@Override
+	public Expenses_desc postExpenseDesc(Expenses_desc expenseDesc) {
+		System.out.println("Printing Expense Description...");
+		System.out.println(expenseDesc.getUid());
+		System.out.println(expenseDesc.getDate());
+		return expensesDescRepository.save(expenseDesc);
 	}
 	
 

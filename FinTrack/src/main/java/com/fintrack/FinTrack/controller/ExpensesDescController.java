@@ -10,7 +10,7 @@ import com.fintrack.FinTrack.entity.Expenses_desc;
 @RestController
 public interface ExpensesDescController {
 	
-		// Return all expenses description of a particular expense with eid
-		ResponseEntity<Expenses_desc> getExpenseByEdid(String eid);
+		// Return all expenses description of a particular expense with uid
+		ResponseEntity<Object> getExpenseByUid(String uid);
 
 }

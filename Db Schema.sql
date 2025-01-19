@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS BUDGET_ALLOC (
 CREATE TABLE IF NOT EXISTS Expense (
     eid VARCHAR(36) PRIMARY KEY,
 	uid varchar(36),
+    edid varchar(36),
     date DATE NOT NULL,
 	dineout DOUBLE,
     vegetable DOUBLE,
@@ -57,7 +58,8 @@ CREATE TABLE IF NOT EXISTS Expense (
     electronics DOUBLE,
     grooming DOUBLE,
     other DOUBLE,
-    FOREIGN KEY (uid) REFERENCES USERS(uid)
+    FOREIGN KEY (uid) REFERENCES USERS(uid),
+    FOREIGN KEY (edid) REFERNCES Expenses_desc(edid)
 );
 
 -- Creating Expenses_desc Table:

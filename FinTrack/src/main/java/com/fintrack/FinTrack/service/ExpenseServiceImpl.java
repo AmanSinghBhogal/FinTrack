@@ -1,7 +1,6 @@
 package com.fintrack.FinTrack.service;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -9,13 +8,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fintrack.FinTrack.entity.Expense;
+import com.fintrack.FinTrack.entity.ExpenseRequest;
+import com.fintrack.FinTrack.entity.Expenses_desc;
 import com.fintrack.FinTrack.repository.ExpenseRepository;
+import com.fintrack.FinTrack.repository.ExpensesDescRepository;
 
 @Service
 public class ExpenseServiceImpl implements ExpenseService {
 	
 	@Autowired
 	ExpenseRepository expenseRepository;
+	
+	@Autowired
+	ExpensesDescRepository descRepo;
 
 	@Override
 	public List<Expense> findExpenseByUid(String uid) {
@@ -38,7 +43,7 @@ public class ExpenseServiceImpl implements ExpenseService {
 	}
 
 	@Override
-	public Expense findExpenseByUidDate(String uid, String date) {
+	public Object findExpenseByUidDate(String uid, String date) {
 		
 		Expense resp = new Expense();
 		Iterable<Expense> expenses = expenseRepository.findAll();
@@ -53,11 +58,14 @@ public class ExpenseServiceImpl implements ExpenseService {
 		}
 		
 		if(flag) {
-			return resp;
+			// Once I have found the expense I need to fetch its coresponding description...
+			Expenses_desc description = descRepo.findById(resp.getEdid()).get();
+			ExpenseRequest response = new ExpenseRequest(resp, description);
+			return response;
 		}
 		else {
 			System.out.println("No expense found for user with uid: "+uid+" and Date: "+date);
-			return resp;
+			return null;
 		}
 		
 	}
@@ -128,4 +136,12 @@ public class ExpenseServiceImpl implements ExpenseService {
 		}
 	}
 
+	@Override
+	public Expense postExpense(Expense expense) {
+		System.out.println("Printing Expense to be posted...");
+		System.out.println(expense.getUid());
+		System.out.println(expense.getDate());
+		return expenseRepository.save(expense);
+	}
+	
 }

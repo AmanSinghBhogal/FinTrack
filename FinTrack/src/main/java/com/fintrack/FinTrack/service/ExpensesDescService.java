@@ -10,6 +10,9 @@ import com.fintrack.FinTrack.entity.Expenses_desc;
 public interface ExpensesDescService {
 	
 	//Return expenses description of a particular expense with eid
-	Expenses_desc findByEdid(String eid);
+	Object findByUid(String uid);
+	
+	// Post a New Expense Description
+	Expenses_desc postExpenseDesc(Expenses_desc expenseDesc);
 
 }

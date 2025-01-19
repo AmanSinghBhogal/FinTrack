@@ -14,7 +14,7 @@ public interface ExpenseService {
 	List<Expense> findExpenseByUid(String uid);
 	
 	// Returns expense of an user for a particular date.
-	Expense findExpenseByUidDate(String uid, String date);
+	Object findExpenseByUidDate(String uid, String date);
 
 	// Returns expenses of an user for a particular year.
 	List<Expense> findExpenseByUidYear(String uid, int year);
@@ -24,4 +24,8 @@ public interface ExpenseService {
 	
 	// Returns expenses of an user for a particular date range.
 	List<Expense> findExpenseByUidRange(String uid, String sDate, String eDate);
+	
+	// Post a new Expense
+	Expense postExpense(Expense expense);
+	
 }

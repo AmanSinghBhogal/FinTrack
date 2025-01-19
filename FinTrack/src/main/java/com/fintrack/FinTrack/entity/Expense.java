@@ -1,6 +1,7 @@
 package com.fintrack.FinTrack.entity;
 
 
+import org.hibernate.annotations.UuidGenerator;
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
@@ -14,6 +15,7 @@ import jakarta.persistence.TemporalType;
 public class Expense {
 	
 	@Id
+	@UuidGenerator
 	private String eid;
 
 	@Column
@@ -61,6 +63,9 @@ public class Expense {
 	
 	@Column(name="other")
 	private double other;
+	
+	@Column(name="edid")
+	private String edid;
 
 	public String getUid() {
 		return uid;
@@ -188,6 +193,14 @@ public class Expense {
 
 	public void setOther(double other) {
 		this.other = other;
+	}
+
+	public String getEdid() {
+		return edid;
+	}
+	
+	public void setEdid(String edid) {
+		this.edid = edid;
 	}
 	
 }

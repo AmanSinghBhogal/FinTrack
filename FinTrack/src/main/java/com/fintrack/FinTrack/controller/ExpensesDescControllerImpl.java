@@ -20,11 +20,14 @@ public class ExpensesDescControllerImpl implements ExpensesDescController{
 	@Autowired
 	ExpensesDescService expensesDescService;
 
-	@GetMapping("/{eid}")
+	@GetMapping("/{uid}")
 	@Override
-	public ResponseEntity<Expenses_desc> getExpenseByEdid(@PathVariable("eid") String eid) {
-		Expenses_desc resp = expensesDescService.findByEdid(eid);
-		return new ResponseEntity<>(resp, HttpStatus.OK);
+	public ResponseEntity<Object> getExpenseByUid(@PathVariable("uid") String uid) {
+		Object resp = expensesDescService.findByUid(uid);
+		if(resp != null) {
+			return new ResponseEntity<>(resp, HttpStatus.OK);	
+		}
+		return new ResponseEntity<>("No Expense Description Found", HttpStatus.NOT_FOUND);	
 	}
 	
 

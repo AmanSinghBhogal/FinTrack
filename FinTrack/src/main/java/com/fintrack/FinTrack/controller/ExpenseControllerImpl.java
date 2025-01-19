@@ -8,11 +8,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fintrack.FinTrack.entity.Expense;
+import com.fintrack.FinTrack.entity.ExpenseRequest;
+import com.fintrack.FinTrack.entity.Expenses_desc;
 import com.fintrack.FinTrack.service.ExpenseService;
+import com.fintrack.FinTrack.service.ExpensesDescService;
 
 @RestController
 @RequestMapping("/expense")
@@ -20,6 +25,9 @@ public class ExpenseControllerImpl implements ExpenseController{
 
 	@Autowired
 	ExpenseService expenseService;
+	
+	@Autowired
+	ExpensesDescService expensesDescService;
 	
 	@GetMapping("/{uid}")
 	@Override
@@ -30,10 +38,13 @@ public class ExpenseControllerImpl implements ExpenseController{
 
 	@GetMapping("/{uid}/{date}")
 	@Override
-	public ResponseEntity<Expense> getExpenseByUidDate(@PathVariable("uid") String uid, @PathVariable("date") String date) {
+	public ResponseEntity<Object> getExpenseByUidDate(@PathVariable("uid") String uid, @PathVariable("date") String date) {
 		System.out.println(date);
-		Expense resp = expenseService.findExpenseByUidDate(uid, date);
-		return new ResponseEntity<>(resp, HttpStatus.OK);
+		Object resp = expenseService.findExpenseByUidDate(uid, date);
+		if(resp != null) {
+			return new ResponseEntity<>(resp, HttpStatus.OK);	
+		}
+		return new ResponseEntity<>("No Expense Found", HttpStatus.NOT_FOUND);	
 	}
 
 	@GetMapping("/{uid}/year/{year}")
@@ -58,6 +69,21 @@ public class ExpenseControllerImpl implements ExpenseController{
 		
 		List<Expense> resp = expenseService.findExpenseByUidRange(uid, sDate,eDate);
 		return new ResponseEntity<>(resp, HttpStatus.OK);
+	}
+
+	@PostMapping
+	@Override
+	public ResponseEntity<Object> postExpense(@RequestBody ExpenseRequest request) {
+		System.out.println("You have reached expense Creation endpoint");
+		
+		Expenses_desc description = expensesDescService.postExpenseDesc(request.extractExpenseDesc());
+		Expense expense = request.extractExpense();
+		expense.setEdid(description.getEdid());
+		expenseService.postExpense(expense);
+		
+		
+
+		return new ResponseEntity<>("Successfully hit postExpense", HttpStatus.OK);
 	}
 
 }
