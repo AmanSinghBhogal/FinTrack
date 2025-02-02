@@ -2,10 +2,12 @@ package com.fintrack.FinTrack.controller;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,8 +33,8 @@ public class ExpenseControllerImpl implements ExpenseController{
 	
 	@GetMapping("/{uid}")
 	@Override
-	public ResponseEntity<List<Expense>> getExpenseByUid(@PathVariable("uid") String uid) {
-		List<Expense> resp = expenseService.findExpenseByUid(uid);
+	public ResponseEntity<List<ExpenseRequest>> getExpenseByUid(@PathVariable("uid") String uid) {
+		List<ExpenseRequest> resp = expenseService.findExpenseByUid(uid);
 		return new ResponseEntity<>(resp, HttpStatus.OK);
 	}
 
@@ -86,4 +88,19 @@ public class ExpenseControllerImpl implements ExpenseController{
 		return new ResponseEntity<>("Successfully hit postExpense", HttpStatus.OK);
 	}
 
+	@DeleteMapping
+	@Override
+	public ResponseEntity<Object> deteleExpense(@RequestBody Map<String, String> request) {
+		String eid;
+		eid = request.get("eid");
+		System.out.println("Deleting object for eid: " +eid);
+		String result = (String) expenseService.deleteExp(eid);
+		if(result == null)
+			return new ResponseEntity<>("Bad Request", HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>("Successfully Deleted expense: "+eid, HttpStatus.OK);
+	}
+
+	
+
+	
 }

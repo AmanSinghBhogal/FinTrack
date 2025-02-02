@@ -30,8 +30,8 @@ public class Users {
 	@Column(name="gender", length=1)
 	private char gender;
 	
-	@Column (name="wallet")
-	private double wallet;
+	@Column (name="wallet",  length=100)
+	private String wallet;
 	
 	@Column (name="email", length=50)
 	private String email;
@@ -72,10 +72,10 @@ public class Users {
 	public void setGender(char gender) {
 		this.gender = gender;
 	}
-	public double getWallet() {
+	public String getWallet() {
 		return wallet;
 	}
-	public void setWallet(double wallet) {
+	public void setWallet(String wallet) {
 		this.wallet = wallet;
 	}
 	public String getEmail() {

@@ -14,55 +14,55 @@ public class ExpenseRequest {
 
 	private String date;
 	
-	private double dineout;
+	private String dineout;
 	
 	private String dineout_desc;
 	
-	private double vegetable;
+	private String vegetable;
 	
 	private String vegetable_desc;
 	
-	private double dairy;
+	private String dairy;
 	
 	private String dairy_desc;
 	
-	private double fruits;
+	private String fruits;
 	
 	private String fruits_desc;
 	
-	private double meat;
+	private String meat;
 	
 	private String meat_desc;
 	
-	private double travel;
+	private String travel;
 	
 	private String travel_desc;
 	
-	private double personal;
+	private String personal;
 	
 	private String personal_desc;
 	
-	private double entertainment;
+	private String entertainment;
 	
 	private String entertainment_desc;
 	
-	private double cloths;
+	private String cloths;
 	
 	private String cloths_desc;
 	
-	private double furniture;
+	private String furniture;
 	
 	private String furniture_desc;
 	
-	private double electronics;
+	private String electronics;
 	
 	private String electronics_desc;
 	
-	private double grooming;
+	private String grooming;
 	
 	private String grooming_desc;
 	
-	private double other;
+	private String other;
 	
 	private String other_desc;
 	
@@ -142,6 +142,44 @@ public class ExpenseRequest {
 		ob2.setOther_desc(this.other_desc);
 		return ob2;
 	}
+	
+	public void setExpense(Expense ob) {
+		this.uid=ob.getUid();
+		this.eid=ob.getEid();
+		this.date=ob.getDate();
+		this.dineout=ob.getDineout();
+		this.vegetable=ob.getVegetable();
+		this.dairy = ob.getDairy();
+		this.fruits=ob.getFruits();
+		this.meat=ob.getMeat();
+		this.travel=ob.getTravel();
+		this.personal=ob.getPersonal();
+		this.entertainment=ob.getEntertainment();
+		this.cloths=ob.getCloths();
+		this.furniture=ob.getFurniture();
+		this.electronics=ob.getElectronics();
+		this.grooming=ob.getGrooming();
+		this.other=ob.getOther();
+	}
+
+	public void setExpenseDesc(Expenses_desc ob) {
+		this.uid=ob.getUid();
+		this.edid = ob.getEdid();
+		this.date=ob.getDate();
+		this.dineout_desc=ob.getDineout_desc();
+		this.vegetable_desc=ob.getVegetable_desc();
+		this.dairy_desc=ob.getDairy_desc();
+		this.fruits_desc=ob.getFruits_desc();
+		this.meat_desc=ob.getMeat_desc();
+		this.travel_desc=ob.getTravel_desc();
+		this.personal_desc=ob.getPersonal_desc();
+		this.entertainment_desc=ob.getEntertainment_desc();
+		this.cloths_desc=ob.getCloths_desc();
+		this.furniture_desc=ob.getFurniture_desc();
+		this.electronics_desc=ob.getElectronics_desc();
+		this.grooming_desc=ob.getGrooming_desc();
+		this.other_desc=ob.getOther_desc();
+	}
 
 	public String getUid() {
 		return uid;
@@ -159,11 +197,11 @@ public class ExpenseRequest {
 		this.date = date;
 	}
 
-	public double getDineout() {
+	public String getDineout() {
 		return dineout;
 	}
 
-	public void setDineout(double dineout) {
+	public void setDineout(String dineout) {
 		this.dineout = dineout;
 	}
 
@@ -175,11 +213,11 @@ public class ExpenseRequest {
 		this.dineout_desc = dineout_desc;
 	}
 
-	public double getVegetable() {
+	public String getVegetable() {
 		return vegetable;
 	}
 
-	public void setVegetable(double vegetable) {
+	public void setVegetable(String vegetable) {
 		this.vegetable = vegetable;
 	}
 
@@ -191,11 +229,11 @@ public class ExpenseRequest {
 		this.vegetable_desc = vegetable_desc;
 	}
 
-	public double getDairy() {
+	public String getDairy() {
 		return dairy;
 	}
 
-	public void setDairy(double dairy) {
+	public void setDairy(String dairy) {
 		this.dairy = dairy;
 	}
 
@@ -207,11 +245,11 @@ public class ExpenseRequest {
 		this.dairy_desc = dairy_desc;
 	}
 
-	public double getFruits() {
+	public String getFruits() {
 		return fruits;
 	}
 
-	public void setFruits(double fruits) {
+	public void setFruits(String fruits) {
 		this.fruits = fruits;
 	}
 
@@ -223,11 +261,11 @@ public class ExpenseRequest {
 		this.fruits_desc = fruits_desc;
 	}
 
-	public double getMeat() {
+	public String getMeat() {
 		return meat;
 	}
 
-	public void setMeat(double meat) {
+	public void setMeat(String meat) {
 		this.meat = meat;
 	}
 
@@ -239,11 +277,11 @@ public class ExpenseRequest {
 		this.meat_desc = meat_desc;
 	}
 
-	public double getTravel() {
+	public String getTravel() {
 		return travel;
 	}
 
-	public void setTravel(double travel) {
+	public void setTravel(String travel) {
 		this.travel = travel;
 	}
 
@@ -255,11 +293,11 @@ public class ExpenseRequest {
 		this.travel_desc = travel_desc;
 	}
 
-	public double getPersonal() {
+	public String getPersonal() {
 		return personal;
 	}
 
-	public void setPersonal(double personal) {
+	public void setPersonal(String personal) {
 		this.personal = personal;
 	}
 
@@ -271,11 +309,11 @@ public class ExpenseRequest {
 		this.personal_desc = personal_desc;
 	}
 
-	public double getEntertainment() {
+	public String getEntertainment() {
 		return entertainment;
 	}
 
-	public void setEntertainment(double entertainment) {
+	public void setEntertainment(String entertainment) {
 		this.entertainment = entertainment;
 	}
 
@@ -287,11 +325,11 @@ public class ExpenseRequest {
 		this.entertainment_desc = entertainment_desc;
 	}
 
-	public double getCloths() {
+	public String getCloths() {
 		return cloths;
 	}
 
-	public void setCloths(double cloths) {
+	public void setCloths(String cloths) {
 		this.cloths = cloths;
 	}
 
@@ -303,11 +341,11 @@ public class ExpenseRequest {
 		this.cloths_desc = cloths_desc;
 	}
 
-	public double getFurniture() {
+	public String getFurniture() {
 		return furniture;
 	}
 
-	public void setFurniture(double furniture) {
+	public void setFurniture(String furniture) {
 		this.furniture = furniture;
 	}
 
@@ -319,11 +357,11 @@ public class ExpenseRequest {
 		this.furniture_desc = furniture_desc;
 	}
 
-	public double getElectronics() {
+	public String getElectronics() {
 		return electronics;
 	}
 
-	public void setElectronics(double electronics) {
+	public void setElectronics(String electronics) {
 		this.electronics = electronics;
 	}
 
@@ -335,11 +373,11 @@ public class ExpenseRequest {
 		this.electronics_desc = electronics_desc;
 	}
 
-	public double getGrooming() {
+	public String getGrooming() {
 		return grooming;
 	}
 
-	public void setGrooming(double grooming) {
+	public void setGrooming(String grooming) {
 		this.grooming = grooming;
 	}
 
@@ -351,11 +389,11 @@ public class ExpenseRequest {
 		this.grooming_desc = grooming_desc;
 	}
 
-	public double getOther() {
+	public String getOther() {
 		return other;
 	}
 
-	public void setOther(double other) {
+	public void setOther(String other) {
 		this.other = other;
 	}
 

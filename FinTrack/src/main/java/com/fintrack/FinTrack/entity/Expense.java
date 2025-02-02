@@ -26,43 +26,43 @@ public class Expense {
 	private String date;
 	
 	@Column(name="dineout")
-	private double dineout;
+	private String dineout;
 	
 	@Column(name="vegetable")
-	private double vegetable;
+	private String vegetable;
 	
 	@Column(name="dairy")
-	private double dairy;
+	private String dairy;
 	
 	@Column(name="fruits")
-	private double fruits;
+	private String fruits;
 	
 	@Column(name="meat")
-	private double meat;
+	private String meat;
 	
 	@Column(name="travel")
-	private double travel;
+	private String travel;
 	
 	@Column(name="personal")
-	private double personal;
+	private String personal;
 	
 	@Column(name="entertainment")
-	private double entertainment;
+	private String entertainment;
 	
 	@Column(name="cloths")
-	private double cloths;
+	private String cloths;
 	
 	@Column(name="furniture")
-	private double furniture;
+	private String furniture;
 	
 	@Column(name="electronics")
-	private double electronics;
+	private String electronics;
 	
 	@Column(name="grooming")
-	private double grooming;
+	private String grooming;
 	
 	@Column(name="other")
-	private double other;
+	private String other;
 	
 	@Column(name="edid")
 	private String edid;
@@ -91,107 +91,107 @@ public class Expense {
 		this.date = date;
 	}
 
-	public double getDineout() {
+	public String getDineout() {
 		return dineout;
 	}
 
-	public void setDineout(double dineout) {
+	public void setDineout(String dineout) {
 		this.dineout = dineout;
 	}
 
-	public double getVegetable() {
+	public String getVegetable() {
 		return vegetable;
 	}
 
-	public void setVegetable(double vegetable) {
+	public void setVegetable(String vegetable) {
 		this.vegetable = vegetable;
 	}
 
-	public double getDairy() {
+	public String getDairy() {
 		return dairy;
 	}
 
-	public void setDairy(double dairy) {
+	public void setDairy(String dairy) {
 		this.dairy = dairy;
 	}
 
-	public double getFruits() {
+	public String getFruits() {
 		return fruits;
 	}
 
-	public void setFruits(double fruits) {
+	public void setFruits(String fruits) {
 		this.fruits = fruits;
 	}
 
-	public double getMeat() {
+	public String getMeat() {
 		return meat;
 	}
 
-	public void setMeat(double meat) {
+	public void setMeat(String meat) {
 		this.meat = meat;
 	}
 
-	public double getTravel() {
+	public String getTravel() {
 		return travel;
 	}
 
-	public void setTravel(double travel) {
+	public void setTravel(String travel) {
 		this.travel = travel;
 	}
 
-	public double getPersonal() {
+	public String getPersonal() {
 		return personal;
 	}
 
-	public void setPersonal(double personal) {
+	public void setPersonal(String personal) {
 		this.personal = personal;
 	}
 
-	public double getEntertainment() {
+	public String getEntertainment() {
 		return entertainment;
 	}
 
-	public void setEntertainment(double entertainment) {
+	public void setEntertainment(String entertainment) {
 		this.entertainment = entertainment;
 	}
 
-	public double getCloths() {
+	public String getCloths() {
 		return cloths;
 	}
 
-	public void setCloths(double cloths) {
+	public void setCloths(String cloths) {
 		this.cloths = cloths;
 	}
 
-	public double getFurniture() {
+	public String getFurniture() {
 		return furniture;
 	}
 
-	public void setFurniture(double furniture) {
+	public void setFurniture(String furniture) {
 		this.furniture = furniture;
 	}
 
-	public double getElectronics() {
+	public String getElectronics() {
 		return electronics;
 	}
 
-	public void setElectronics(double electronics) {
+	public void setElectronics(String electronics) {
 		this.electronics = electronics;
 	}
 
-	public double getGrooming() {
+	public String getGrooming() {
 		return grooming;
 	}
 
-	public void setGrooming(double grooming) {
+	public void setGrooming(String grooming) {
 		this.grooming = grooming;
 	}
 
-	public double getOther() {
+	public String getOther() {
 		return other;
 	}
 
-	public void setOther(double other) {
+	public void setOther(String other) {
 		this.other = other;
 	}
 

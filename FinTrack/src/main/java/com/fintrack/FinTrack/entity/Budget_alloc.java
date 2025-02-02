@@ -25,43 +25,43 @@ public class Budget_alloc {
 	private String month;
 	
 	@Column(name="rent")
-	private double rent;
+	private String rent;
 	
 	@Column(name="water")
-	private double water;
+	private String water;
 	
 	@Column(name="electricity")
-	private double electricity;
+	private String electricity;
 	
 	@Column(name="travel")
-	private double travel;
+	private String travel;
 	
 	@Column(name="entertainment")
-	private double entertainment;
+	private String entertainment;
 	
 	@Column(name="medical")
-	private double medical;
+	private String medical;
 	
 	@Column(name="debt")
-	private double debt;
+	private String debt;
 	
 	@Column(name="food")
-	private double food;
+	private String food;
 	
 	@Column(name="savings")
-	private double savings;
+	private String savings;
 	
 	@Column(name="investment")
-	private double investment;
+	private String investment;
 	
 	@Column(name="mob_internet")
-	private double mod_internet;
+	private String mod_internet;
 	
 	@Column(name="shopping")
-	private double shopping;
+	private String shopping;
 	
 	@Column(name="income")
-	private double income;
+	private String income;
 
 	public String getUid() {
 		return uid;
@@ -95,107 +95,107 @@ public class Budget_alloc {
 		this.month = month;
 	}
 
-	public double getRent() {
+	public String getRent() {
 		return rent;
 	}
 
-	public void setRent(double rent) {
+	public void setRent(String rent) {
 		this.rent = rent;
 	}
 
-	public double getWater() {
+	public String getWater() {
 		return water;
 	}
 
-	public void setWater(double water) {
+	public void setWater(String water) {
 		this.water = water;
 	}
 
-	public double getElectricity() {
+	public String getElectricity() {
 		return electricity;
 	}
 
-	public void setElectricity(double electricity) {
+	public void setElectricity(String electricity) {
 		this.electricity = electricity;
 	}
 
-	public double getTravel() {
+	public String getTravel() {
 		return travel;
 	}
 
-	public void setTravel(double travel) {
+	public void setTravel(String travel) {
 		this.travel = travel;
 	}
 
-	public double getEntertainment() {
+	public String getEntertainment() {
 		return entertainment;
 	}
 
-	public void setEntertainment(double entertainment) {
+	public void setEntertainment(String entertainment) {
 		this.entertainment = entertainment;
 	}
 
-	public double getMedical() {
+	public String getMedical() {
 		return medical;
 	}
 
-	public void setMedical(double medical) {
+	public void setMedical(String medical) {
 		this.medical = medical;
 	}
 
-	public double getDebt() {
+	public String getDebt() {
 		return debt;
 	}
 
-	public void setDebt(double debt) {
+	public void setDebt(String debt) {
 		this.debt = debt;
 	}
 
-	public double getFood() {
+	public String getFood() {
 		return food;
 	}
 
-	public void setFood(double food) {
+	public void setFood(String food) {
 		this.food = food;
 	}
 
-	public double getSavings() {
+	public String getSavings() {
 		return savings;
 	}
 
-	public void setSavings(double savings) {
+	public void setSavings(String savings) {
 		this.savings = savings;
 	}
 
-	public double getInvestment() {
+	public String getInvestment() {
 		return investment;
 	}
 
-	public void setInvestment(double investment) {
+	public void setInvestment(String investment) {
 		this.investment = investment;
 	}
 
-	public double getMod_internet() {
+	public String getMod_internet() {
 		return mod_internet;
 	}
 
-	public void setMod_internet(double mod_internet) {
+	public void setMod_internet(String mod_internet) {
 		this.mod_internet = mod_internet;
 	}
 
-	public double getShopping() {
+	public String getShopping() {
 		return shopping;
 	}
 
-	public void setShopping(double shopping) {
+	public void setShopping(String shopping) {
 		this.shopping = shopping;
 	}
 
-	public double getIncome() {
+	public String getIncome() {
 		return income;
 	}
 
-	public void setIncome(double income) {
+	public void setIncome(String income) {
 		this.income = income;
 	}
 	

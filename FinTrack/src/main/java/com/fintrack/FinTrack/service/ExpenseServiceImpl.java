@@ -23,14 +23,22 @@ public class ExpenseServiceImpl implements ExpenseService {
 	ExpensesDescRepository descRepo;
 
 	@Override
-	public List<Expense> findExpenseByUid(String uid) {
-		List<Expense> resp = new ArrayList<Expense>();
+	public List<ExpenseRequest> findExpenseByUid(String uid) {
+		// Empty bucket
+		List<ExpenseRequest> resp = new ArrayList<ExpenseRequest>();
+		
+		// Fetch all expense
 		Iterable<Expense> expenses = expenseRepository.findAll();
 		
 		
 		for(Expense e: expenses) {
-			if(e.getUid().equals(uid))
-				resp.add(e);
+			if(e.getUid().equals(uid)) {
+				ExpenseRequest bucket = new ExpenseRequest();
+				Expenses_desc edx = descRepo.findById(e.getEdid()).get();
+				bucket.setExpense(e);
+				bucket.setExpenseDesc(edx);
+				resp.add(bucket);
+			}
 		}
 		
 		if(!resp.isEmpty()) {
@@ -142,6 +150,17 @@ public class ExpenseServiceImpl implements ExpenseService {
 		System.out.println(expense.getUid());
 		System.out.println(expense.getDate());
 		return expenseRepository.save(expense);
+	}
+
+	@Override
+	public Object deleteExp(String eid) {
+		Expense exp = expenseRepository.findById(eid).get();
+		if(exp != null ) {
+				descRepo.deleteById(exp.getEdid());
+				expenseRepository.deleteById(eid);
+				return "Record Successfully Deleted";
+		}
+		return null;
 	}
 	
 }

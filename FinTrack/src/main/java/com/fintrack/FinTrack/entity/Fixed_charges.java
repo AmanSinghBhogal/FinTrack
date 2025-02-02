@@ -22,28 +22,28 @@ public class Fixed_charges {
 	private String date;
 	
 	@Column (name="rent")
-	private double rent;
+	private String rent;
 	
 	@Column (name="water")
-	private double water;
+	private String water;
 	
 	@Column (name="electricity")
-	private double electricity;
+	private String electricity;
 	
 	@Column (name="internet")
-	private double internet;
+	private String internet;
 	
 	@Column (name="investment")
-	private double investment;
+	private String investment;
 	
 	@Column (name="savings") 
-	private double savings;
+	private String savings;
 	
 	@Column (name="debt")
-	private double debt;
+	private String debt;
 	
 	@Column (name="gas")
-	private double gas;
+	private String gas;
 
 	public String getFid() {
 		return fid;
@@ -69,67 +69,67 @@ public class Fixed_charges {
 		this.date = date;
 	}
 
-	public double getRent() {
+	public String getRent() {
 		return rent;
 	}
 
-	public void setRent(double rent) {
+	public void setRent(String rent) {
 		this.rent = rent;
 	}
 
-	public double getWater() {
+	public String getWater() {
 		return water;
 	}
 
-	public void setWater(double water) {
+	public void setWater(String water) {
 		this.water = water;
 	}
 
-	public double getElectricity() {
+	public String getElectricity() {
 		return electricity;
 	}
 
-	public void setElectricity(double electricity) {
+	public void setElectricity(String electricity) {
 		this.electricity = electricity;
 	}
 
-	public double getInternet() {
+	public String getInternet() {
 		return internet;
 	}
 
-	public void setInternet(double internet) {
+	public void setInternet(String internet) {
 		this.internet = internet;
 	}
 
-	public double getInvestment() {
+	public String getInvestment() {
 		return investment;
 	}
 
-	public void setInvestment(double investment) {
+	public void setInvestment(String investment) {
 		this.investment = investment;
 	}
 
-	public double getSavings() {
+	public String getSavings() {
 		return savings;
 	}
 
-	public void setSavings(double savings) {
+	public void setSavings(String savings) {
 		this.savings = savings;
 	}
 
-	public double getDebt() {
+	public String getDebt() {
 		return debt;
 	}
 
-	public void setDebt(double debt) {
+	public void setDebt(String debt) {
 		this.debt = debt;
 	}
 
-	public double getGas() {
+	public String getGas() {
 		return gas;
 	}
 
-	public void setGas(double gas) {
+	public void setGas(String gas) {
 		this.gas = gas;
 	}
 	

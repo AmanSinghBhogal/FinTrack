@@ -1,6 +1,7 @@
 package com.fintrack.FinTrack.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,7 +13,7 @@ import com.fintrack.FinTrack.entity.ExpenseRequest;
 public interface ExpenseController {
 	
 	// Return all expenses of a particular user with uid
-	ResponseEntity<List<Expense>> getExpenseByUid(String uid);
+	ResponseEntity<List<ExpenseRequest>> getExpenseByUid(String uid);
 	
 	// Returns expense of an user for a particular date.
 	ResponseEntity<Object> getExpenseByUidDate(String uid, String date);
@@ -28,5 +29,8 @@ public interface ExpenseController {
 	
 	// Post a new Expense
 	ResponseEntity<Object> postExpense(ExpenseRequest request);
+	
+	// Delete an Expense
+	ResponseEntity<Object> deteleExpense(Map<String, String> request);
 
 }

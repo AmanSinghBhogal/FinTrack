@@ -6,12 +6,13 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.fintrack.FinTrack.entity.Expense;
+import com.fintrack.FinTrack.entity.ExpenseRequest;
 
 @Service
 public interface ExpenseService {
 	
 	// Return all expenses of a particular user with uid
-	List<Expense> findExpenseByUid(String uid);
+	List<ExpenseRequest> findExpenseByUid(String uid);
 	
 	// Returns expense of an user for a particular date.
 	Object findExpenseByUidDate(String uid, String date);
@@ -27,5 +28,8 @@ public interface ExpenseService {
 	
 	// Post a new Expense
 	Expense postExpense(Expense expense);
+	
+	// Delete a Expense
+	Object deleteExp(String eid);
 	
 }
