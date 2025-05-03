@@ -1,6 +1,7 @@
 package com.fintrack.FinTrack.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -18,5 +19,12 @@ public interface InvestmentService {
 	// Get Investments for a particular user with uid, year and month
 	List<Investment> getByUidYearandMonth(String uid, int year, int month);
 	
+	//post investment
+	Investment postInvestment(Investment investment);
 
+	//delete investment
+	Investment deleteInvestment(String iid);
+	
+	// Patch Investment
+	Investment patchInvestment(Map<String, Object> feilds);
 }

@@ -1,8 +1,12 @@
 package com.fintrack.FinTrack.service;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.util.ReflectionUtils;
+import org.hibernate.annotations.DialectOverride.OverridesAnnotation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -74,7 +78,40 @@ public class InvestmentServiceImpl implements InvestmentService{
 			return new ArrayList<Investment>();
 		}
 	}
+
+	@Override
+	public Investment postInvestment(Investment investment) {
+		Investment resp = investmentRepository.save(investment);
+		return resp;
+	}
 	
+	@Override
+	public Investment deleteInvestment(String iid) {
+		Investment resp = investmentRepository.findById(iid).get();
+		investmentRepository.deleteById(iid);
+		return resp;
+	}
 	
+	@Override
+	public Investment patchInvestment(Map<String, Object> feilds) {
+		String iid = (String) feilds.get("iid");
+		boolean flag = investmentRepository.existsById(iid);
+		
+		if(flag) {
+			Investment invest = investmentRepository.findById(iid).get();
+			feilds.forEach((key, value) -> {
+				Field field = ReflectionUtils.findField(Investment.class, key);
+				field.setAccessible(true);
+				ReflectionUtils.setField(field, invest, value);
+				
+			});
+			return investmentRepository.save(invest);
+			
+			
+			
+		}
+		return null;
+		
+	}
 
 }

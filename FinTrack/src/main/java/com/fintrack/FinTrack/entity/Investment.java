@@ -1,5 +1,6 @@
 package com.fintrack.FinTrack.entity;
 
+import org.hibernate.annotations.UuidGenerator;
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
@@ -10,6 +11,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Investment {
 	
+	@UuidGenerator
 	@Id
 	private String iid;
 	

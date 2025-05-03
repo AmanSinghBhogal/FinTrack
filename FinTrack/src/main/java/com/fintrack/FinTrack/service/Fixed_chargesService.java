@@ -18,4 +18,11 @@ public interface Fixed_chargesService {
 	// Get Fixed Charges based on uid and year and month
 	List<Fixed_charges> getByUidYearandMonth(String uid, int year, int month);
 	
+	//Post Fixed Charges
+	Fixed_charges postFixedCharge(Fixed_charges request);
+	
+	//Delete Fixed Charges
+	Fixed_charges deleteFc(String fid);
+	
+	
 } 

@@ -1,6 +1,7 @@
 package com.fintrack.FinTrack.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,5 +19,11 @@ public interface Fixed_chargesController {
 	
 	// Returns all Fixed Charges of a particular user with uid, year and month
 	ResponseEntity<List<Fixed_charges>> getFixedChargesByUidYearandMonth(String uid, String year, String month);
+	
+	//Post Fixed Charges
+	ResponseEntity<Object> postFixedCharges(Fixed_charges request);
+	
+	// Delete Fixed Charges 
+	ResponseEntity<Object> deleteFc(Map<String, String> request);
 	
 }

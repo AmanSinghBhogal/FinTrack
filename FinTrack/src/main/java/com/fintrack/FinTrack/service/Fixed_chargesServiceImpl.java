@@ -73,4 +73,33 @@ public class Fixed_chargesServiceImpl implements Fixed_chargesService {
 		}
 	}
 
+	@Override
+	public Fixed_charges postFixedCharge(Fixed_charges request) {
+		try {
+			Fixed_charges resp = fixed_chargesRepository.save(request);
+			return resp;
+		}
+		catch(Exception e){
+			System.out.println("Excpetion while saving Fixed Charge --> "+e);
+			return null;
+		}
+		
+	}
+
+	@Override
+	public Fixed_charges deleteFc(String fid) {
+		try {
+			System.out.println("fid: "+fid);
+			Fixed_charges resp = fixed_chargesRepository.findById(fid).get();
+			fixed_chargesRepository.deleteById(fid);
+			return resp;
+			
+		}
+		catch(Exception e) {
+			
+			return null;
+		}
+		
+	}
+
 }
