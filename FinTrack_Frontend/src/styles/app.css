@@ -1,0 +1,140 @@
+/*
+    Document   : override
+    Created on : <date>
+    Author     : <author>
+    Description:
+        This is where any of your application specific styles should be included
+*/
+.demo-oracle-icon {
+    width:137px;
+    height:18px;
+    content:url("images/oracle_logo.svg")
+}
+
+html:not([dir="rtl"]) .demo-oracle-icon {
+    padding-right:4px
+}
+
+html[dir="rtl"] .demo-oracle-icon {
+    padding-left:4px
+}
+
+.demo-oracle-icon:before {
+    display:inline
+}
+
+.demo-appheader-avatar {
+    width:24px;
+    height:24px
+}
+
+.demo-appheader-avatar:before {
+    content:url("images/avatar_24px.png")
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    .demo-appheader-avatar:before {
+        content:url("images/avatar_24px_2x.png");
+        -webkit-transform:translate(-25%, -25%) scale(0.5);
+        transform:translate(-25%, -25%) scale(0.5)
+    }
+}
+
+.oj-web-applayout-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.oj-web-applayout-footer-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+}
+
+.oj-web-applayout-footer-content div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.oj-web-applayout-content{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+}
+
+.custom-header {
+    font-weight: bold;
+    /* color: #e60000; Oracle Red */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 10px 0;
+    /* border-bottom: 2px solid #e60000; */
+    animation: fadeInSlide 0.8s ease-in-out;
+}
+.custom-header h1{
+    font-size: 2rem;
+    color: red;
+}
+
+@keyframes fadeInSlide {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+  .house {
+    border: 1px solid red;
+    position: relative;
+    /* right: 0; */
+    /* left:0; */
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+  }
+  
+  .roof {
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 100px solid #8b0000; /* Dark red roof */
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .walls {
+    width: 200px;
+    height: 100px;
+    background: #ffe4c4; /* Light brown */
+    position: absolute;
+    top: 100px;
+    left: 0;
+    border: 2px solid #000;
+  }
+  
+  .door {
+    width: 40px;
+    height: 60px;
+    background: #654321; /* Brown door */
+    position: absolute;
+    top: 140px;
+    left: 80px;
+    border: 2px solid #000;
+    border-radius: 3px;
+  }
+  
