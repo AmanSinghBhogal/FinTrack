@@ -1,0 +1,28 @@
+.profileCard{
+    border: 1px solid black;
+    border-radius: 1.5rem;
+    box-sizing: border-box;
+    box-shadow: rgb(155 149 149) 0px 0px 12px 0px;
+    height: 50vh;
+    width: 20vw;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 20px 0;
+}
+
+.profileimage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+    width: 100%;
+}
+
+.profileimage img{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    object-fit: fill;
+}

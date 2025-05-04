@@ -12,29 +12,64 @@ import Context = require("ojs/ojcontext");
 import { Footer } from "./footer";
 import { Header } from "./header";
 import { Content } from "./content/index";
+import { Profiles } from "./profiles/index";
+import { Avatars } from "./avatars/index";
 
 type Props = Readonly<{
   appName?: string;
   userLogin?: string;
-  duckWorld?: string;
+  data?: data[] | null;
 }>;
+
+type data = {
+  name: string | null,
+  age: number | null
+}
+
+const mydata = [
+  {
+    "name": "Aman",
+    "age": 22
+  },
+  {
+    "name": "Mausmi",
+    "age": 23
+  },
+  {
+    "name": null,
+    "age": 23
+  },
+  {
+    "name": "abc",
+    "age": null
+  }
+]
 
 export const App = registerCustomElement(
   "app-root",
-  ({ appName = "FinTrack", userLogin = "mausmi.sinha@oracle.com", duckWorld = "Fuck this world"}: Props) => {
+  ({ appName = "FinTrack", userLogin = "mausmi.sinha@oracle.com", data = mydata}: Props) => {
     useEffect(() => {
       Context.getPageContext().getBusyContext().applicationBootstrapComplete();
     }, []);
     
     return (
       <div id="appContainer" class="oj-web-applayout-page">
-        <Header
+        <Header 
           appName={appName} 
           userLogin={userLogin} 
         />
-        <Content 
-          duckWorld={duckWorld}
+        <Avatars/>
+        <Profiles 
         />
+        {
+            data==null? "NO Data found": data.map((item, key) => (
+                <Content
+                  key={key}
+                  name = {item.name}
+                  age = {item.age}
+                />
+            ))
+        }
         <Footer />
       </div>
     );

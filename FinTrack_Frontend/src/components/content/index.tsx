@@ -8,21 +8,24 @@
 import { h } from "preact";
 import { useRef, useState, useEffect } from "preact/hooks";
 import * as ResponsiveUtils from "ojs/ojresponsiveutils";
+// @ts-ignore
+require(['css!components/content/Content.css']);
 
 type Props = Readonly<{
-  duckWorld: string
+  name: string | null,
+  age: number | null
 }>;
 
-export function Content({ duckWorld }: Props) {
+export function Content({ name, age}: Props) {
   return (
-    <div class="oj-web-applayout-content oj-web-applayout-max-width oj-web-applayout-content">
-      <span>{duckWorld}</span>
-
-      <div class="house">
-        <div class="roof"></div>
-        <div class="walls"></div>
-        <div class="door"></div>
+    <div class="content">
+      <div class="canvas oj-web-applayout-max-width">
+        {name == null? "No Name Found": name}
       </div>
+      <div class="canvas oj-web-applayout-max-width">
+        {age == null? "No Age Found": age}
+      </div>
+      
 
     </div>
 

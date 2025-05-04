@@ -1,0 +1,17 @@
+.content{
+    height: 90vh;
+    display: flex;
+    flex-direction:column-reverse;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid blue;
+}
+
+.canvas{
+    background-color: red;
+    text-align: center;
+}
+
+.abc{
+    background-color: red;
+}

@@ -25,6 +25,7 @@
       */
       // injector:mainReleasePaths
       {
+        'css': 'libs/require-css/css', // Adjust the path based on where you place it
         'ojs': 'libs/oj/18.0.0/debug',
         'ojL10n': 'libs/oj/18.0.0/ojL10n',
         'ojtranslations': 'libs/oj/18.0.0/resources',
